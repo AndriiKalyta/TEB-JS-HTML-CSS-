@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+Liczba#1:
+<input id="firstNumber"></input>
+<br>
+Liczba#2:
+<input id="secondNumber"></input>
+<br>    
+<br>
+<button onclick="calculate(1)">+</button>
+<button onclick="calculate(2)">-</button>
+<button onclick="calculate(3)">*</button>
+<button onclick="calculate(4)">/</button>
+<button onclick="calculate(5)">Reset</button>
+
+<h3 id="result"></h3>
+
+<script>
+   function calculate(mode){
+        //alert (mode);
+        let firstNumber= document.getElementById('firstNumber').value;
+        let secondNumber= document.getElementById('secondNumber').value;
+
+        firstNumber = firstNumber.replace(',', '.');
+        secondNumber =secondNumber.replace(',', '.');
+
+        switch (mode) {
+            case 1:
+                sum(firstNumber, secondNumber);
+                break;
+            case 2:
+                sub(firstNumber, secondNumber);
+                break;
+            case 3:
+                mn(firstNumber, secondNumber);
+                break;
+            case 4: 
+                roz( firstNumber, secondNumber);
+                break;
+            case 5:
+                res()
+                break;
+        }
+   }
+
+    function sum( val1, val2) {
+        
+        if (!isNaN(val1) && !isNaN(val2)) {
+            let result = parseFloat(val1) + parseFloat(val2);
+            wyn(result);
+        } else {
+            error();
+        }
+    }
+    function sub(val1, val2) {
+        if (!isNaN(val1) && !isNaN(val2)) {
+            let result = parseFloat(val1) - parseFloat(val2);
+            wyn(result);
+        } else {
+            error();
+        }
+    }
+    function mn(val1,val2){
+        if (!isNaN(val1) && !isNaN(val2)) {
+            let result = parseFloat(val1) * parseFloat(val2);
+            wyn(result);
+        } else {
+            error();
+        }
+
+    }
+    function roz(val1, val2) {
+        if (!isNaN(val1) && !isNaN(val2)) {
+            let result = parseFloat(val1) / parseFloat(val2);
+            wyn(result);
+        } else {
+            error();
+        }
+    }
+
+    function res() {
+        document.getElementById('firstNumber').value="";
+        document.getElementById('secondNumber').value="";
+        document.getElementById('result').innerHTML="";
+    }
+
+    function error(){
+        document.getElementById('result').innerHTML = 'Musi buc liczba!!'
+    }
+    function sp() {
+        if (isNaN(firstNumber) || isNaN(secondNumber));
+        return error();
+    }
+ 
+    function wyn(x) {
+        document.getElementById('result').innerHTML = x.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    border: 5px outset  darkgoldenrod  ;
+}
+.name {
+    color: white;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.name:hover {
+    color: darkgoldenrod;
+}
+.logo{
+    margin-right: 40px;
+}
+h1, h2 {
+    color: white;
+}

@@ -1,0 +1,144 @@
+<!--
+Stwórz walidator, służący do określania, czy wprowadzona w formularzu (input)
+wartość jest liczbą, frazą (słowo/zdanie/ciąg znaków) lub adresem e-mail.
+W przypadku walidacji adresu email należy wziąc pod uwagę wystąpienie
+znaków "@" oraz "." - występują oba, jest to email.
+
+Aplikację należy zbudować z wykorzystaniem funkcji.
+W przypdaku słów(fraz) i adresu e-mail po przyciskami należy wyświetlić długość wprowadzonej frazy/emaila - dla liczb nie wyświetlamy długości.
+Jeśli walidacja jest pozytwyna kolor tła storny musi zmienić się na zielono,
+jeśli negatywna na czerwono, a przycisk reset przywraca pierwotny kolor tła + resetuje formularz
+i odpowiedź.
+
+W tytule storny dodaj swoje imię i nazwisko.
+
+Proponuję wykorzystać startowego template który jest poniżej + funkcję do zmiany koloru.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andrii Kalyta</title>
+</head>
+<body id = "background" style = "background-color: bisque;">
+
+<p style="float: left;">
+    Wprowadź :
+</p>
+<input  id="data" style="margin-top: 15px;">
+<br>
+<button onclick = "key(1)" style="margin-top: 15px;" >Liczba?</button>
+<button onclick = "key(2)">Słowo?</button>
+<button onclick = "key(3)">Email?</button>
+<button onclick = "key()">Reset</button>
+
+<h2>Ilość znaków w frazie: </h2>
+<h2 id = 'lenght'></h2>
+
+<script type="text/javascript">
+
+    /**
+     * Funkcja zmieniająca kolor tła strony w zależności od wartości parametru
+     * @param validateResult rezultat walidacji 0- walidacja pozytywna, 1- walidacja negatywna, 2- brak rezulatatu walidacji
+     */
+    function color(validateResult = 2)
+    {
+        if (validateResult == 1) {
+            document.body.style.background = '#00ff00';
+        } else if(validateResult == 0) {
+            document.body.style.background = 'red';
+        } else {
+            document.body.style.background = 'bisque';
+        }
+    }
+    /*
+    * W zależności od klikniętego przycisku, wywoływana jest odpowiednia funkcja(sprawdzanie na liczbe/
+    * sprawdzanie na slowo/ sprawdzanie na emaila/resetowanie)
+    */
+    function key(mode) {
+        let inf = document.getElementById('data').value;
+        switch (mode) {
+            case 1:
+                nubmer(inf);
+                break;
+            case 2:
+                word(inf);
+                break;
+            case 3:
+                email(inf);
+                break;
+            default:
+                reset();
+                break;
+        }
+    }
+    //Funkcja sprawdzanie na liczbe
+    function nubmer(val) { 
+        if (!val){
+            error();
+            color(validateResult= 2);
+        } else if (!isNaN(val)){
+            color(validateResult=1);
+            clean();
+        }
+         else {
+            color(validateResult=0);
+        }
+    } 
+
+    //Funkcja sprawdzanie na slowo
+    function word(val){  
+        if (!val) {
+            error();
+            color(validateResult=2);
+        } else if (isNaN(val)){
+            count(val);
+            color(validateResult=1);
+        }else{
+            color(validateResult=0);
+            clean();
+        }
+    }
+
+    //Funkcja sprawdzanie na emaila
+    function email(val) {
+        if (!val){
+            error();
+            color(validateResult=2);
+        } else if (val.indexOf('@') > -1 && val.indexOf('.') > -1 ) {
+            count (val);
+            color(validateResult=1);
+        } else {
+            color(validateResult=0);
+            clean();
+        }
+        
+    }
+
+    //Funkcja wyświetla komunika błędu
+    function error(){
+        document.getElementById('lenght').innerHTML='Napisz symbole!'
+    }
+
+    //Funkcja wyświetlenia długości wprowadzonej frazy/emaila
+    function count(symbol){
+        document.getElementById('lenght').innerHTML=symbol.length;
+    }
+
+    //Funkcja kasowania pola odpowiedzi
+    function clean(){
+        document.getElementById('lenght').innerHTML='';
+    }
+
+    //Funkcja resetowanja formularza, wynika,tla
+    function reset() {
+        document.getElementById('data').value="";
+        color(validateResult=2);
+        document.getElementById('lenght').innerHTML="";
+    }
+</script>
+</body>
+</html>

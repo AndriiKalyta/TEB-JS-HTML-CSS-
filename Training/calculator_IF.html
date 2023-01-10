@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+Liczba#1:
+<input id="firstNumber"></input>
+<br>
+Liczba#2:
+<input id="secondNumber"></input>
+<br>    
+<br>
+<button onclick="calculate(1)">+</button>
+<button onclick="calculate(2)">-</button>
+<button onclick="calculate(3)">*</button>
+<button onclick="calculate(4)">/</button>
+<button onclick="res()">Reset</button>
+
+<h3 id="result"></h3>
+
+<script>
+   function calculate(mode){
+        
+        //Pobiera dane z pól
+        let firstNumber= document.getElementById('firstNumber').value;
+        let secondNumber= document.getElementById('secondNumber').value;
+
+        //zmienia  "," na "."
+        firstNumber = firstNumber.replace(',', '.');
+        secondNumber =secondNumber.replace(',', '.');
+
+        //Walidacja danych wejściowych
+        if (isNaN(firstNumber) || isNaN(secondNumber)) {
+            error()
+        } else {
+        //Wykonanie funkcji
+        switch (mode) {
+            case 1:
+                sum(firstNumber, secondNumber);
+                break;
+            case 2:
+                sub(firstNumber, secondNumber);
+                break;
+            case 3:
+                mn(firstNumber, secondNumber);
+                break;
+            case 4: 
+                roz( firstNumber, secondNumber);
+                break;
+
+        }
+        }
+    }
+
+    //Funkcja suma
+    function sum( val1, val2) {
+            let result = parseFloat(val1) + parseFloat(val2);
+            wyn(result);
+    }
+
+    //Funkcja odejmowania
+    function sub(val1, val2) {
+            let result = parseFloat(val1) - parseFloat(val2);
+            wyn(result);
+    }
+
+    //Funkcja mnożenia
+    function mn(val1,val2){
+            let result = parseFloat(val1) * parseFloat(val2);
+            wyn(result);
+    }
+
+    //Funkcja dzielenia
+    function roz(val1, val2) {
+            let result = parseFloat(val1) / parseFloat(val2);
+            wyn(result);
+    }
+
+    //Funkcja oczyszczania pola
+    function res() {
+        document.getElementById('firstNumber').value="";
+        document.getElementById('secondNumber').value="";
+        document.getElementById('result').innerHTML="";
+    }
+
+    //Funkcja błędu
+    function error(){
+        document.getElementById('result').innerHTML = 'Musi buc liczba!!'
+    }
+
+    //Funkcja wyniku
+    function wyn(x) {
+        document.getElementById('result').innerHTML = x.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

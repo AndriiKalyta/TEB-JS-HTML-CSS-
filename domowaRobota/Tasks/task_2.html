@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style_task_2.css">
+    <title>Zadanie 2</title>
+</head>
+<body>
+    <header>
+        <div class="name">Andrii Kalyta</div>
+        <div><h2>Zadanie 2</h2></div>
+        <div class="logo"> <img src="../images/logo-edu.png" alt="Logo TEB"></div>
+    </header>
+
+    <h1>Obliczanie pola  trójkąta</h1>
+    <p>Pierwszy bok trójkąta</p>
+    <input type="number" id="side1">
+    <p>Drugi bok trójkąta</p>
+    <input type="number" id="side2">
+    <p>Trzeci bok trójkąta</p>
+    <input type="number" id="side3">
+    <br>
+    <button class="button" onclick="area()">Liczyć</button>
+    <h2 id="result"></h2>
+    <script>
+    function area(){
+        let a = document.getElementById('side1').value;
+        let b = document.getElementById('side2').value;
+        let c = document.getElementById('side3').value;
+         
+        a = a.replace(',', '.');
+        b = b.replace(',', '.');
+        c = c.replace(',', '.');
+        
+        if (!a || !b || !c) {
+            document.getElementById('result').innerHTML= 'Podaj wymiary';
+        } else {
+        halfP = (parseFloat(a) + parseFloat(b) + parseFloat(c))/2;
+       
+        answer = Math.sqrt(parseFloat(halfP) * (parseFloat(halfP) - parseFloat(a)) *
+         (parseFloat(halfP) - parseFloat(b)) * (parseFloat(halfP) - parseFloat(c)));
+
+        document.getElementById('result').innerHTML= 'Wynik: '+  answer.toFixed(3);
+        }
+    }
+    </script>
+</body>
+</html>

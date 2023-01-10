@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style_css_5.css">
+    <title>Zadanie 5</title>
+</head>
+<body>
+    <header>
+        <div class="name">Andrii Kalyta</div>
+        <div><h2>Zadanie 5</h2></div>
+        <div class="logo"> <img src="../images/logo-edu.png" alt="Logo TEB"></div>
+    </header>
+    <h2>Przepisujący w czasie rzeczywistym to co do input’a wprowadzi użytkownik</h2>
+    <input type="text" id="form" onkeyup="replicate()">
+    <h2 id="answer"></h2>
+
+    <script>
+        function replicate() {
+
+        let form =document.getElementById('form').value;
+
+        document.getElementById('answer').innerHTML= form;
+        }
+    </script>
+</body>
+</html>

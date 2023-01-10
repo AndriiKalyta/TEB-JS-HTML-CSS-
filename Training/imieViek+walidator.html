@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="name1"></p>
+    <p id="age1"></p>
+    <p id="s1"></p>
+    <p id="name2"></p>
+    <p id="age2"></p>
+    <p id="s2"></p>
+    <button onclick="c1()" id="b2">Pelnoletni:tak/nie</button>
+    <script>
+        let name1=prompt('imie1')
+        let age1=prompt('wiek1')
+        let name2=prompt('imie2')
+        let age2=prompt('wiek2')
+        document.getElementById('name1').innerHTML='Imie: '+name1;
+        document.getElementById('age1').innerHTML='Wiek: '+age1;
+        document.getElementById('name2').innerHTML='Imie: '+name2;
+        document.getElementById('age2').innerHTML='Wiek: '+age2;
+        function c1() {
+            if (age1>18){
+                document.getElementById('s1').innerHTML='Tak';   
+            } else{
+                document.getElementById('s1').innerHTML='Nie';
+            }
+            if (age2>18){
+                document.getElementById('s2').innerHTML='Tak';   
+            } else {
+                document.getElementById('s2').innerHTML='Nie';
+            }
+        }
+        
+    </script>
+</body>
+</html>

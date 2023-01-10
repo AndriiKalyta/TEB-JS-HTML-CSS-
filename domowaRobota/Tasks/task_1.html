@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style_task_1.css">
+    <title>Zadanie 1</title>
+</head>
+<body>
+    <header>
+        <div class="name">Andrii Kalyta</div>
+        <div><h2>Zadanie 1</h2></div>
+        <div class="logo"> <img src="../images/logo-edu.png" alt="Logo TEB"></div>
+    </header>
+
+    <h1>Sprawdź, czy liczby są równe</h1>
+
+    <p>Liczba 1</p>
+    <input type="number" id="form1">
+
+    <p>Liczba 2</p>
+    <input type="number" id="form2">
+
+    <p>Liczba 3</p>
+    <input type="number" id="form3">
+    <br>
+
+    <button class="button" onclick="isEquals()" > <span>Sprawdzać</span></button>
+
+    <h1 id="result"></h1>
+    <script type="text/javascript">
+    
+
+    function isEquals () { 
+    let number1 = document.getElementById('form1').value;
+    let number2 = document.getElementById('form2').value;
+    let number3 = document.getElementById('form3').value;
+
+    number1 = number1.replace(',', '.');
+    number2 = number2.replace(',', '.');
+    number3 = number3.replace(',', '.');
+
+    if (!number1 && !number2 && !number3 ) {
+        document.getElementById('result').innerHTML="Liczby nie podane"
+    } else if ( number1 == number2 && number2 == number3 && number1 == number3) {
+        document.getElementById('result').innerHTML="Liczby są równe"
+     } else {
+        document.getElementById('result').innerHTML="Liczby nie są równe"
+     }
+    }
+
+</script>
+</body>
+</html>

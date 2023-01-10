@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days</title>
+</head>
+<body>
+    <input type="date" id="date" onchange="ddd()">
+    <h1 id="result"></h1>
+    <script>
+
+        function ddd () {
+        let date = document.getElementById('date').value;
+        //let pastDate = Date.parse(date);
+        let weekDay = new Array(7);
+        weekDay[0] = 'Воскресенье';
+        weekDay[1] = 'Понедельник';
+        weekDay[2] = "Вторник";
+        weekDay[3] = "Среда";
+        weekDay[4] = "Четверг";
+        weekDay[5] = "Пятница";
+        weekDay[6] = "Суббота";
+        let result = weekDay[date.getDay()];
+        document.getElementById('result').innerHTML= result;
+        }
+    </script>
+</body>
+</html>

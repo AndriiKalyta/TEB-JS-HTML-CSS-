@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style_task_4.css">
+    <title>Zadanie 4</title>
+</head>
+<body>
+    <header>
+        <div class="name">Andrii Kalyta</div>
+        <div><h2>Zadanie 4</h2></div>
+        <div class="logo"> <img src="../images/logo-edu.png" alt="Logo TEB"></div>
+    </header>
+
+    <h1>Obliczający wiek użytkownika w latach</h1>
+    <input type="date" id="date" onchange="diffDates()">
+    <h2 id="result"></h2>
+    <script>
+        function diffDates() {
+            
+        let date1 = document.getElementById('date').value;
+        let date2 = Date.now();
+         
+        let pastDate = Date.parse(date1);
+
+        result = (date2-pastDate)/(1000*60*60*24*365);
+
+        document.getElementById('result').innerHTML = 'Wynik '+result.toFixed(0)+' pełne lata'
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    border: 5px outset  darkgoldenrod  ;
+}
+
+.name {
+    color: white;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.name:hover {
+    color: darkgoldenrod;
+}
+.logo{
+    margin-right: 40px;
+}
+
+.block_logo {
+    display: flex;
+    justify-content: center;   
+}
+.logo_js{
+    text-align: center;
+    margin-top: 30px;
+}
+.block_tasks{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    padding: 5px 0px 5px 0px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    background-color: black;
+    color: white;
+}
+a:active {
+    background-color: red;
+    color: black;
+}

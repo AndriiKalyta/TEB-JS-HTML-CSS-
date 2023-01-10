@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style_task_6-7.css">
+    <title>Zadanie 6-7</title>
+</head>
+<body>
+    <header>
+        <div class="name">Andrii Kalyta</div>
+        <div><h2>Zadanie 6-7</h2></div>
+        <div class="logo"> <img src="../images/logo-edu.png" alt="Logo TEB"></div>
+    </header>
+    <h2>Sprawdzający w czasie rzeczywistym to co wprowadza użytkownik</h2>
+    <input type="text" id="form" onkeyup="validate()">
+    <h2 id="report_number">Liczba:</h2>
+    <h2 id="report_word">Słowo:</h2>
+    <h2 id="report_email">E-mail:</h2>
+
+    <script>
+        function validate(){
+
+            let data = document.getElementById('form').value;
+            data = data.replace(',', '.');
+
+            if (!data) {
+
+                document.getElementById('report_number').innerHTML= 'Liczba:';
+                document.getElementById('report_word').innerHTML = 'Slowo:';
+                document.getElementById('report_email').innerHTML= 'E-mail:';
+            } else if  (data.indexOf('@') > -1 && data.indexOf('.') > -1 ) {
+                
+                document.getElementById('report_number').innerHTML= 'Liczba: Nie';
+                document.getElementById('report_word').innerHTML= 'Słowo: Nie';
+                document.getElementById('report_email').innerHTML= 'E-mail: Tak';
+            } else if (!isNaN(data)) {
+
+                document.getElementById('report_number').innerHTML= 'Liczba: Tak';
+                document.getElementById('report_word').innerHTML = 'Slowo: Nie';
+                document.getElementById('report_email').innerHTML= 'E-mail: Nie';
+            }  else if  (isNaN(data)) {
+
+                document.getElementById('report_number').innerHTML= 'Liczba: Nie';
+                document.getElementById('report_word').innerHTML = 'Slowo: Tak';
+                document.getElementById('report_email').innerHTML= 'E-mail: Nie';
+            } 
+        }
+    </script>
+</body>
+</html>
